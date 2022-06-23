@@ -1,0 +1,218 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css">
+		
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<link rel="stylesheet" href="style.css">
+	
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h4>Lightning Network: building next-gen DeFi</h4>
+					<p>Anton Gushcha</p>
+					<img src="./logo.png" height="100">
+					<p>Standard Sats</p>
+					
+				</section>
+				<section>
+					<p>План:</p>
+					<ul>
+						<li>Какую проблему решаем?</li>
+						<li>Как пытались уже решить?</li>
+						<li>Как работает Lightning?</li>
+						<li>Как работает DLC?</li>
+						<li>Что на этом можно сделать?</li>
+					</ul>
+				</section>
+				<section>
+					<p>Май 2020: 20k sats или 2$ за транзакцию</p>
+					<img src="img/mempool_congestion.svg">
+				</section>
+				<section>
+					<p>Капучино с собой?</p>
+					<img src="img/bitcoin-coffee-prage-czech-republic-1024x576.jpg" height="300px">
+					<p>Подождите 10-60 мин</p>
+				</section>
+				<section>
+					<p>Атака регулятора через KYC/AML</p>
+					<img src="img/Chainalysis-Logo-1200x600.png">
+					<row>
+						<img src="img/elliptic-new-400x200.png" height="200">
+						<img style="margin-left: 50px;" src="img/blockpass_logo.png" height="200">
+					</row>
+				</section>
+				<section>
+					<p>Взаимозаменяемость монет под ударом</p>
+					<div class="r-stack">
+						<img class="fragment" src="img/wasabi_coinjoin_anaylsis.png">
+						<img class="fragment" src="img/Elliptic Twitter Investigation.png">
+						<img class="fragment" src="img/ell-risk-triggers.svg" height="500px">
+					</div>
+				</section>
+				<section>
+					<ul>
+						<li>Стоимость места в блокчейне</li>
+						<li>Скорость финализации транзакций</li>
+						<li>Приватность пользователей</li>
+					</ul>
+				</section>
+				<section>
+					<p>Первые подходы к решению</p>
+					<ul>
+						<li>Динамический размер блока</li>
+						<li>Уменьшим время между блоками</li>
+						<li>Скроем суммы переводов</li>
+					</ul>
+				</section>
+				<section>
+					<p>Посчитаем размер блокчейна</p>
+					<ul>
+						<li>Mastercard: 5к транзакций в секунду</li>
+						<li>Размер ослеплённой транзакции 2.0 килобайт</li>
+						<li>Размер обычной транзакции 0.5 килобайт</li>
+					</ul>
+				</section>
+				<section>
+					<img src="img/blockchain_size_growth.png">
+				</section>
+				<section>
+					<ul>
+						<li>С ослеплением: 315 TБайт/год</li>
+						<li>Без ослепления: 80 TБайт/год</li>
+						<li>Биткойн сейчас: 0.125 ТБайт/год</li>
+					</ul>
+				</section>
+				<section>
+					<p>Есть альтернатива:</p>
+					<ul>
+						<li>Незачем хранить 90% транзакций</li>
+						<li>Состояние хранить у заинтерисованных сторон</li>
+						<li>Биткойн — арбитр в спорах</li>
+					</ul>
+				</section>
+
+				<section>
+					<h4>
+						Как работает Lightning?
+					</h4>
+				</section>
+				<section>
+					<img src="img/channel_phase0.png">
+				</section>
+				<section>
+					<img src="img/channel_phase1.png">
+				</section>
+				<section>
+					<img src="img/channel_phase2.png">
+				</section>
+				<section>
+					<img src="img/channel_phase3.png">
+				</section>
+				<section>
+					<img src="img/channel_phase4.png">
+				</section>
+				<section>
+					<img src="img/channel_phase5.png">
+				</section>
+				<section>
+					<img src="img/channel_phase6.png">
+				</section>
+				<section>
+					<img src="img/channel_phase7.png">
+				</section>
+				<section>
+					<img src="img/channel_phase8.png">
+				</section>
+				<section>
+					<img src="img/channel_phase9.png">
+				</section>
+				<section>
+					<img src="img/channel_phase10.png">
+				</section>
+				<section>
+					<img src="img/channel_phase11.png">
+				</section>
+				<section>
+					<img src="img/channel_phase12.png">
+				</section>
+				<section>
+					<img src="img/channel_phase13.png">
+				</section>
+
+				<section>
+					<img class="r-stretch" src="img/routing_phase0.png">
+				</section>
+				<section>
+					<img class="r-stretch" src="img/routing_phase1.png">
+				</section>
+				<section>
+					<img class="r-stretch" src="img/routing_phase2.png">
+				</section>
+				<section>
+					<img class="r-stretch" src="img/routing_phase3.png">
+				</section>
+				<section>
+					<img class="r-stretch" src="img/routing_phase4.png">
+				</section>
+				<section>
+					<img class="r-stretch" src="img/routing_phase5.png">
+				</section>
+
+				<section>
+					<h4>Discreet Log Contract</h4>
+				</section>
+				<section>
+					<img class="r-stretch" src="img/dlc_phase0.png">
+				</section>
+				<section>
+					<img class="r-stretch" src="img/dlc_phase1.png">
+				</section>
+				<section>
+					<img class="r-stretch" src="img/dlc_phase2.png">
+				</section>
+				<section>
+					<img class="r-stretch" src="img/dlc_defi.png">
+				</section>
+
+				<section>
+					<h4>
+						Evolution of Trust
+					</h4>
+					<p>
+						<a href="https://ncase.me/trust">
+							ncase.me/trust
+						</a>
+					</p>
+					<img src="img/deceive_player.png" height="150px">
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
